@@ -1,0 +1,46 @@
+#! /bin/bash
+
+# Read the current terminal colour settings and emit a script that applies those colour settings.
+# Works on xfce4-terminal and probably other gnome-terminal wrappers.
+
+osc3() {
+    echo -ne "\\e]$1;$2;$3\\a"
+}
+osc() {
+    echo -ne "\\e]$1;$2\\a"
+}
+
+osc_q() {
+    # Send a query like OSC 4;0;? and read the answer
+    oldstty=$(stty -g </dev/tty )
+    stty raw -echo min 0 time 0 > /dev/tty
+    # stty raw -echo min 0 time 1
+    echo -ne "\\e]$1\\a"  > /dev/tty
+    # xterm needs the sleep (or "time 1", but that is 1/10th second).
+    sleep 0.001
+    read -s -d "" -r answer > /dev/tty
+    stty $oldstty > /dev/tty
+    result=${answer#*;}
+    # Remove escape at the end.
+    echo $result | sed 's/[^rgb:0-9a-f/ ]\+$// ;'" s/^//;s/$/$2/; "
+}
+
+echo 'osc(){ echo -ne "\\e]$1\\a"; }'
+echo -n "osc  \"4;"  ; osc_q '4;0;?'  '"'
+echo -n "osc  \"4;"  ; osc_q '4;1;?'  '"'
+echo -n "osc  \"4;"  ; osc_q '4;2;?'  '"'
+echo -n "osc  \"4;"  ; osc_q '4;3;?'  '"'
+echo -n "osc  \"4;"  ; osc_q '4;4;?'  '"'
+echo -n "osc  \"4;"  ; osc_q '4;5;?'  '"'
+echo -n "osc  \"4;"  ; osc_q '4;6;?'  '"'
+echo -n "osc  \"4;"  ; osc_q '4;7;?'  '"'
+echo -n "osc  \"4;"  ; osc_q '4;8;?'  '"'
+echo -n "osc  \"4;"  ; osc_q '4;9;?'  '"'
+echo -n "osc \"4;"  ; osc_q '4;10;?' '"'
+echo -n "osc \"4;"  ; osc_q '4;11;?' '"'
+echo -n "osc \"4;"  ; osc_q '4;12;?' '"'
+echo -n "osc \"4;"  ; osc_q '4;13;?' '"'
+echo -n "osc \"4;"  ; osc_q '4;14;?' '"'
+echo -n "osc \"4;"  ; osc_q '4;15;?' '"'
+echo -n "osc   \"10;" ; osc_q '10;?'   '"'
+echo -n "osc   \"11;" ; osc_q '11;?'   '"'

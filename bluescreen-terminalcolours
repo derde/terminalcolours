@@ -1,0 +1,24 @@
+#! /bin/bash
+
+osc() {
+    echo -ne "\\e]$1\\a"
+}
+osc  '4;0;#000000'  # black
+osc  '4;1;#010122'  # red
+osc  '4;2;#120233'  # green
+osc  '4;3;#180344'  # brown
+osc  '4;4;#220455'  # blue
+osc  '4;5;#280566'  # magenta
+osc  '4;6;#330677'  # cyan
+osc  '4;7;#3A077F'  # grey
+osc  '4;8;#0A0217'  # dark grey
+osc  '4;9;#440888'  # red
+osc '4;10;#4A0999' # green
+osc '4;11;#550AAA' # yellow
+osc '4;12;#5A0BBB' # blue
+osc '4;13;#660CCC' # magenta
+osc '4;14;#770DDD' # cyan
+osc '4;15;#8808FF' # white
+osc   '10;#AA00FF'   # foreground
+osc   '11;#000000'   # background
+

@@ -1,0 +1,21 @@
+#! /bin/bash
+
+osc(){ echo -ne "\\e]$1\\a"; }
+osc  "4;0;rgb:0000/0000/0000"
+osc  "4;1;rgb:cdcd/0000/0000"
+osc  "4;2;rgb:0000/cdcd/0000"
+osc  "4;3;rgb:cdcd/cdcd/0000"
+osc  "4;4;rgb:0000/0000/cdcd"
+osc  "4;5;rgb:cdcd/0000/cdcd"
+osc  "4;6;rgb:0000/cdcd/cdcd"
+osc  "4;7;rgb:e5e5/e5e5/e5e5"
+osc  "4;8;rgb:7f7f/7f7f/7f7f"
+osc  "4;9;rgb:ffff/0000/0000"
+osc "4;10;rgb:0000/ffff/0000"
+osc "4;11;rgb:ffff/ffff/0000"
+osc "4;12;rgb:5c5c/5c5c/ffff"
+osc "4;13;rgb:ffff/0000/ffff"
+osc "4;14;rgb:0000/ffff/ffff"
+osc "4;15;rgb:ffff/ffff/ffff"
+osc   "10;rgb:0000/0000/0000"
+osc   "11;rgb:ffff/ffff/ffff"
