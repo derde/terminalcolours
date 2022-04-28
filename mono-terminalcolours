@@ -4,12 +4,12 @@ osc() {
     echo -ne "\\e]$1\\a"
 }
 osc '4;0;#000000'  # black
-osc '4;1;#111111'  # red
-osc '4;2;#222222'  # green
-osc '4;3;#333333'  # brown
-osc '4;4;#444444'  # blue
-osc '4;5;#555555'  # magenta
-osc '4;6;#666666'  # cyan
+osc '4;1;#484848'  # red
+osc '4;2;#505050'  # green
+osc '4;3;#585858'  # brown
+osc '4;4;#606060'  # blue
+osc '4;5;#686868'  # magenta
+osc '4;6;#707070'  # cyan
 osc '4;7;#777777'  # grey
 osc '4;8;#171717'  # dark grey
 osc '4;9;#888888'  # red
