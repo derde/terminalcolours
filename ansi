@@ -1,0 +1,33 @@
+#! /bin/bash
+
+false && {
+for ((a=30;a<=37;a++)); do
+    echo -ne '  \e[0;'$a'm0;'$a'\e[0m '
+done
+echo
+for ((a=30;a<=37;a++)); do
+    echo -ne '  \e[1;'$a'm1;'$a'\e[0m '
+done
+echo
+for ((a=40;a<=47;a++)); do
+    echo -ne '  \e[0;'$a'm0;'$a'\e[0m '
+done
+echo
+
+for ((a=40;a<=47;a++)); do
+    echo -ne '  \e[1;'$a'm1;'$a'\e[0m '
+done
+}
+
+echo
+for bright in '' '1;' ; do
+    for foreground in '' '30;' '31;' '32;' '33;' '34;' '35;' '36;' '37;' ; do
+        for background in '' '40;' '41;' '42;' '43;' '44;' '45;' '46;' '47;' ; do
+            escape_code=`echo "$bright$background$foreground" | sed 's/;$//' `
+            printf "\e[${escape_code}m%7s\e[0m " "${escape_code}"
+        done
+        echo
+    done
+done
+
+echo
